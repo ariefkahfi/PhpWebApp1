@@ -18,7 +18,7 @@
 
         try{
             $pdoStatement = $pdo->prepare("insert into visitor VALUES (:s_id)");
-            $pdoStatement->bindParam(":s_id",session_id());
+            $pdoStatement->bindValue(":s_id",session_id());
             $pdoStatement->execute();
         }catch (PDOException $ex){
             //do nothing ....
