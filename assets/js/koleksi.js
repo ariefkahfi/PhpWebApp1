@@ -5,7 +5,7 @@ var msg = null;
 
 
 function resetFormUpload(){
-    clearForm(["#nama_buku"]);
+    clearForm(["#nama_buku,#desk_buku"]);
     $("#pilih_buku").val(null);
     selectedFile = null;
 }
@@ -56,6 +56,10 @@ function doDeleteFile(fileId,realFileName){
 }
 
 
+var clickedCard = function(id){
+    window.location.href="http://localhost/WebApp1/pages/buku-detail.php?id="+id;
+};
+
 function addCardToItsContainer(data){
     $("#card-container").empty();
     data.forEach(function(val){
@@ -67,6 +71,7 @@ function addCardToItsContainer(data){
                     <div class="card-content clearfix">
                         <div class="card-title">${val.nama}</div>
                         <div class="card-description">${val.kategori}</div>
+                        <span class="card-info" onclick="clickedCard('${val.id}')"><i class="fa fa-info fa-fw"></i></span>
                         <span class="card-delete" onclick="testDelete('${val.id}','${val.url}')"><i class="fa fa-trash-o fa-fw"></i></span>
                     </div>
                 </div>
@@ -94,10 +99,11 @@ loadGambarBuku();
 $("#upload_file").click(function(){
     var namaBuku = $("#nama_buku").val();
     var kategoriBuku = $("#kategori_buku").val();
-
+    var deskBuku = $("#desk_buku").val();
 
     if(namaBuku === "" || namaBuku === undefined
-    || kategoriBuku === "" || kategoriBuku === undefined){
+    || kategoriBuku === "" || kategoriBuku === undefined
+    || deskBuku === "" || deskBuku === undefined){
         alert("Masih ada form kosong");
     }else if (selectedFile === null){
         alert("file doesn't meet requirements");
@@ -107,7 +113,9 @@ $("#upload_file").click(function(){
 
         formData.append("nama_buku",namaBuku);
         formData.append("kategori_buku",kategoriBuku);
+        formData.append("deskripsi_buku",deskBuku);
         formData.append("file_buku",selectedFile);
+
 
         $.ajax({
             url : "http://localhost/WebApp1/models/ws/koleksi/upload.php",

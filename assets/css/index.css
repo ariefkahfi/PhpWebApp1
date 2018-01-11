@@ -1,0 +1,17 @@
+#beranda-inner-container-title{
+    display: inline-block;
+}
+#beranda-inner-container-visitor-counter{
+    float: right;
+    margin-top : 7px;
+    margin-right : 5px;
+}
+
+@media screen and (max-width : 768px){
+
+}
+@media screen and (max-width : 648px){
+    /*#beranda-inner-container-visitor-counter{*/
+        /*display: none;*/
+    /*}*/
+}

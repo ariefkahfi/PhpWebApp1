@@ -12,27 +12,30 @@ class UploadPDO
         $url ,
         $kategori ,
         $namaGambar,
+        $deskripsiBuku,
         $tmpFile
     ){
         $result = false;
         try{
             $pdo = BasePDO::getPDOInstance("mysql:dbname=webapp_db1;host=localhost","arief","arief");
             $pStatement = $pdo->prepare(
-                "insert into gambar_buku (nama, url, kategori ,nama_gambar) 
-                           VALUES (:nama , :url, :kategori , :nama_gambar)"
+                "insert into gambar_buku (nama, url, kategori ,nama_gambar,deskripsi_buku) 
+                           VALUES (:nama , :url, :kategori , :nama_gambar , :deskripsi_buku)"
             );
 
             $pStatement->bindParam(":nama",$nama);
             $pStatement->bindParam(":url",$url);
             $pStatement->bindParam(":kategori",$kategori);
             $pStatement->bindParam(":nama_gambar",$namaGambar);
+            $pStatement->bindParam(":deskripsi_buku",$deskripsiBuku);
 
             $pStatement->execute();
 
             $this->uploadFile($tmpFile,$namaGambar);
             $result = true;
         }catch (PDOException $pdoEx){
-            echo "Error , upload file \n file exists" ;
+            // echo "Error , upload file " . $pdoEx->getMessage();
+               echo "Error , upload file ";
         }
         return $result;
     }

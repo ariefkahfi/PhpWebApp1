@@ -2,23 +2,23 @@ $(".left-navbar-content").click(function(){
 
 });
 
-$("#toggle-top-navbar").click(function(){
-    var topNavbarHeight = $("#top-navbar").height();
-    if(topNavbarHeight === 93){
-        // console.log("topNavbar height on 93px");
-        $("#top-navbar").css("height","215px");
-    }else if(topNavbarHeight === 215){
-        $("#top-navbar").css("height","93px");
-    }
-});
+// $("#toggle-top-navbar").click(function(){
+//     var topNavbarHeight = $("#top-navbar").height();
+//     if(topNavbarHeight === 93){
+//         // console.log("topNavbar height on 93px");
+//         $("#top-navbar").css("height","215px");
+//     }else if(topNavbarHeight === 215){
+//         $("#top-navbar").css("height","93px");
+//     }
+// });
 
 function initWindow(){
     if($(window).width() <=500){
-        $("#top-navbar").css("height","93px");
+        $("#top-navbar").css("height","200px");
     }else if($(window).width() > 648){
         $("#top-navbar").css("height","42px");
     }else{
-        $("#top-navbar").css("height","202px");
+        $("#top-navbar").css("height","188px");
     }
 }
 
@@ -31,11 +31,11 @@ initWindow();
 
 $(window).resize(function(){
    if($(window).width() <=500){
-       $("#top-navbar").css("height","93px");
+       $("#top-navbar").css("height","200px");
    }else if($(window).width() > 648){
        $("#top-navbar").css("height","42px");
    }else{
-       $("#top-navbar").css("height","202px");
+       $("#top-navbar").css("height","188px");
    }
 });
 

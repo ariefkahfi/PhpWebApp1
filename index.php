@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="http://localhost/libs/js/jQuery.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="assets/css/index.css"/>
     <link rel="stylesheet" href="assets/css/navbar.css"/>
     <link rel="stylesheet" href="assets/css/global.css"/>
 
@@ -18,26 +19,27 @@
 </head>
 <body>
     <!-- start navbar  -->
-    <?php include "assets/html/navbar.html";?>
+    <?php include "assets/html/navbar.php";?>
     <!-- end navbar  -->
 
     <!-- start container here -->
     <div class="right-container">
-        <div class="right-inner-container">
-            <h3 class="right-inner-container-title">Beranda</h3>
+        <div class="right-inner-container clearfix">
+            <h3 class="right-inner-container-title" id="beranda-inner-container-title">Beranda</h3>
+<!--            <span id="beranda-inner-container-visitor-counter">-->
+<!--                <a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter2.freecounter.ovh/private/freecounterstat.php?c=t2rbscn6rpfg6p65d4flg993s7919zkj" border="0" title="website counter" alt="website counter"></a>-->
+<!--            </span>-->
         </div>
         <div class="right-inner-container">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div>
-        <div class="right-inner-container">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div>
-        <div class="right-inner-container">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>
+                Website ini berisi tentang Koleksi buku,
+                juga untuk melihat referensi nya
+            </p>
         </div>
     </div>
     <!-- end container here -->
 
 </body>
     <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/index.js"></script>
 </html>

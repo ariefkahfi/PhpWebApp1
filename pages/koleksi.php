@@ -16,14 +16,22 @@
     <link rel="stylesheet" href="/WebApp1/assets/css/form.css"/>
 </head>
 <body>
-    <?php include "../assets/html/navbar.html";?>
+    <?php include "../assets/html/navbar.php";?>
     <div class="right-container">
+
         <div class="right-inner-container clearfix">
             <h3 class="right-inner-container-title" id="koleksi-title">Koleksi</h3>
             <div id="tambah-koleksi">
                 <i class="fa fa-lg fa-plus fa-fw"></i>Tambah Koleksi
             </div>
         </div>
+
+<!--        <div class="right-inner-container">-->
+<!--            <div class="right-inner-content clearfix" id="right-inner-content-search">-->
+<!--                <input type="text" id="form-input-search"/><span id="form-input-search-span">Cari Novel</span>-->
+<!--            </div>-->
+<!--        </div>-->
+
         <div class="right-inner-container">
             <div class="card-container clearfix" id="card-container">
 
@@ -59,6 +67,10 @@
                             <option value="pendidikan">Pendidikan</option>
                             <option value="politik">Politik</option>
                         </select>
+                    </div>
+                    <div class="form-row clearfix">
+                        <label for="desk_buku" class="form-label">Deskripsi Buku</label>
+                        <textarea  id="desk_buku" class="form-input" cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-row clearfix">
                         <label for="pilih_buku_container" class="form-label">Pilih File</label>

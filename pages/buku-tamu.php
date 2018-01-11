@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/WebApp1/assets/css/form.css"/>
 </head>
 <body>
-    <?php include "../assets/html/navbar.html"?>
+    <?php include "../assets/html/navbar.php" ?>
 
     <div class="right-container">
         <div class="right-inner-container">

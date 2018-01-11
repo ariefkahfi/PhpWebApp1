@@ -23,4 +23,18 @@ class DownloadPDO
             $queryResutListener->OnResult("Error : ".$exception->getMessage(),QueryCodeConsts::QUERY_ERR);
         }
     }
+
+    public function downloadPictureById($idBuku){
+        $result = "";
+        try{
+            $pdo = BasePDO::getPDOInstance("mysql:dbname=webapp_db1;host=localhost","arief","arief");
+            $query = $pdo->query("select * from gambar_buku where id = '".$idBuku."'",PDO::FETCH_ASSOC);
+            $output = $query->fetchAll();
+            $jsonResult = json_encode($output);
+            $result = $jsonResult;
+        }catch (PDOException $exception){
+            echo "Error :" . $exception->getMessage();
+        }
+        return $result;
+    }
 }
