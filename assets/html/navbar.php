@@ -1,17 +1,40 @@
 <?php
+    include_once  "/var/www/html/WebApp1/models/base/BasePDO.php";
 
-    $nama_berkas = "/var/www/html/WebApp1/counter/counter.txt";
-    if(file_exists($nama_berkas)){
-        $berkas = fopen($nama_berkas,"r");
-        $pencacah = (integer)trim(fgets($berkas,255));
-        $pencacah++;
-        fclose($berkas);
-    }else
-        $pencacah = 1;
+//    $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
+//    $nama_berkas = "/var/www/html/WebApp1/counter/counter.txt";
 
-    $berkas = fopen($nama_berkas,"w");
-    fputs($berkas,$pencacah);
-    fclose($berkas);
+    session_start();
+
+
+    $pdo = BasePDO::getMySqlPDOInstance();
+
+    $pdoQuery = $pdo->query("select count(*) from visitor");
+    $allVisitor = $pdoQuery->fetchColumn();
+
+//    if(file_exists($nama_berkas)){
+//        $berkas = fopen($nama_berkas,"r");
+//        $pencacah = (integer)trim(fgets($berkas,255));
+
+        try{
+            $pdoStatement = $pdo->prepare("insert into visitor VALUES (:s_id)");
+            $pdoStatement->bindParam(":s_id",session_id());
+            $pdoStatement->execute();
+        }catch (PDOException $ex){
+            //do nothing ....
+        }
+
+//        if($pageWasRefreshed){
+//            $pencacah++;
+//        }
+
+//        fclose($berkas);
+//    }else
+//        $pencacah = 1;
+//
+//    $berkas = fopen($nama_berkas,"w");
+//    fputs($berkas,$pencacah);
+//    fclose($berkas);
 ?>
 <nav id="top-navbar-fixed-container">
     <nav id="top-navbar">
@@ -21,7 +44,10 @@
             </h3>
             <div id="top-navbar-visitor-counter-container" class="space">
                 <span>
-                    <?php echo $pencacah;?>
+                    <?php
+                          echo $allVisitor;
+//                        echo $pencacah;
+                    ?>
                 </span>
             </div>
         </div>

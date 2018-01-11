@@ -23,4 +23,14 @@ class BasePDO{
         }
         return $pdoInstance;
     }
+
+    public static function getMySqlPDOInstance(){
+        $pdoInstance = null;
+        try{
+            $pdoInstance = self::getPDOInstance("mysql:dbname=webapp_db1;host=localhost","arief","arief");
+        }catch (PDOException $ex){
+            echo $ex->getMessage();
+        }
+        return $pdoInstance;
+    }
 }
