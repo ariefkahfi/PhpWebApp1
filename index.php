@@ -31,6 +31,7 @@
 <!--            </span>-->
         </div>
         <div class="right-inner-container">
+            <p>Selamat Datang di website saya</p>
             <p>
                 Website ini berisi tentang Koleksi buku,
                 juga untuk melihat referensi nya
